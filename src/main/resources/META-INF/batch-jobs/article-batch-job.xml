@@ -1,0 +1,16 @@
+<job id="article-batch-job" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
+    <properties>
+        <property name="max-results" value="100"/>
+    </properties>
+    <step id="step001" next="step002">
+        <chunk>
+            <reader ref="ArticleReader"/>
+            <processor ref="ArticleProcessor"/>
+            <writer ref="LvsArticleWriter"/>
+        </chunk>
+    </step>
+    <step id="step002">
+        <batchlet ref="ArticleBatchlet"/>
+        <end on="COMPLETE"/>
+    </step>
+</job>
