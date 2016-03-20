@@ -1,9 +1,9 @@
 <job id="article-batch-job" xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="1.0">
     <properties>
-        <property name="max-results" value="100"/>
+        <property name="max-results" value="1000000"/>
     </properties>
     <step id="step001" next="step002">
-        <chunk>
+        <chunk item-count="50">
             <reader ref="ArticleReader"/>
             <processor ref="ArticleProcessor"/>
             <writer ref="LvsArticleWriter"/>
